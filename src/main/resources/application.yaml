@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: "Restaurant Collection"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/restaurants
+    username: postgres
+    password: postgrespw
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+logging:
+  level:
+    org.springframework: ERROR
+    com.andersen.restaurants: INFO
+  file:
+    name: logs.txt
