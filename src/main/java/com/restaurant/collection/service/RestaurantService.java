@@ -4,7 +4,6 @@ import com.restaurant.collection.domain.RestaurantEntity;
 import com.restaurant.collection.exception.DuplicateEntityException;
 import com.restaurant.collection.repository.RestaurantRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,11 +15,6 @@ import java.util.Optional;
 @Service
 public class RestaurantService implements BaseService<RestaurantEntity> {
 
-    private final static String[] EXCLUDE_FIELDS = {
-            RestaurantEntity.Fields.city,
-            RestaurantEntity.Fields.name,
-            RestaurantEntity.Fields.estimatedCost
-    };
     private final RestaurantRepository repository;
 
     protected RestaurantService(RestaurantRepository repository) {
@@ -68,7 +62,12 @@ public class RestaurantService implements BaseService<RestaurantEntity> {
             return create(input);
         }
         RestaurantEntity entity = entityOpt.get();
-        BeanUtils.copyProperties(input, entity, EXCLUDE_FIELDS);
+        if (input.getAverageRating() != null) {
+            entity.setAverageRating(input.getAverageRating());
+        }
+        if (input.getVotes() != null) {
+            entity.setVotes(input.getVotes());
+        }
         log.info("Entity updated.; id: {}; class: {}", entity.getId(), entity.getClass());
         return entity;
     }

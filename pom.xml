@@ -15,7 +15,7 @@
     <description>Restaurant Collection</description>
     <properties>
         <java.version>11</java.version>
-        <testcontainers.version>1.18.3</testcontainers.version>
+        <testcontainers.version>1.17.2</testcontainers.version>
     </properties>
     <dependencies>
         <dependency>
@@ -30,7 +30,6 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

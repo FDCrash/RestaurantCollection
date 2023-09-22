@@ -1,4 +1,4 @@
-package com.restaurant.collection.web;
+package com.restaurant.collection.controller;
 
 import com.restaurant.collection.domain.BaseEntity;
 import com.restaurant.collection.dto.BaseDto;
