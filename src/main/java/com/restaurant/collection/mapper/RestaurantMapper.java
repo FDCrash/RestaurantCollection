@@ -27,7 +27,7 @@ public class RestaurantMapper implements EntityMapper<RestaurantEntity, Restaura
 
     @Override
     public RestaurantEntity fromDto(RestaurantDto dto) {
-        if (!NumberUtils.isCreatable(dto.getAverageRating())) {
+        if (dto.getAverageRating() != null && !NumberUtils.isCreatable(dto.getAverageRating())) {
             throw new IllegalArgumentException("Parameter 'averageRating' should be Decimal number format.");
         }
         return RestaurantEntity.builder()
@@ -35,7 +35,7 @@ public class RestaurantMapper implements EntityMapper<RestaurantEntity, Restaura
                 .name(dto.getName())
                 .city(dto.getCity())
                 .estimatedCost(dto.getEstimatedCost())
-                .averageRating(new BigDecimal(dto.getAverageRating()))
+                .averageRating(dto.getAverageRating() == null ? null : new BigDecimal(dto.getAverageRating()))
                 .votes(dto.getVotes())
                 .build();
     }

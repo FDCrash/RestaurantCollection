@@ -2,7 +2,7 @@ spring:
   application:
     name: "Restaurant Collection"
   datasource:
-    url: jdbc:tc:postgresql:13.3://localhost:random/test
+    url: jdbc:tc:postgresql:13.3://localhost/test
     username: test
     password: test
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
@@ -10,6 +10,5 @@ spring:
     hibernate:
       ddl-auto: validate
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    database: postgresql
   liquibase:
     change-log: classpath:liquibase/db.changelog-master-test-adm-am.xml

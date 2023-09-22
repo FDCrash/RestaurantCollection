@@ -5,7 +5,7 @@ spring:
   application:
     name: "Restaurant Collection"
   datasource:
-    url: jdbc:postgresql://0.0.0.0:5432/restaurant
+    url: jdbc:postgresql://localhost:5432/restaurant
     username: postgres
     password: postgrespw
     driver-class-name: org.postgresql.Driver

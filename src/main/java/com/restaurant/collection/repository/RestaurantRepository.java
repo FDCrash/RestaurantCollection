@@ -11,7 +11,7 @@ public interface RestaurantRepository extends CrudRepository<RestaurantEntity, L
 
     @Override
     List<RestaurantEntity> findAll();
-    List<RestaurantEntity> findAllByCity(String city);
+    List<RestaurantEntity> findAllByCityIgnoreCase(String city);
     List<RestaurantEntity> findByOrderByAverageRatingDesc();
     RestaurantEntity findByNameAndCity(String name, String city);
 
